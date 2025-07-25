@@ -120,6 +120,64 @@
       margin-bottom: 30px;
     }
 
+    .language-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #3c1a4f;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider::before {
+      position: absolute;
+      content: "";
+      height: 20px; width: 20px;
+      left: 3px; bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #3c1a4f; /* Dark purple when on */
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(24px);
+    }
+
+    .label-text {
+      color: #3c1a4f;
+    }
+
+    
     .map-container {
       max-width: 900px;
       margin: 0 auto 30px;
@@ -147,7 +205,7 @@
       color: white;
     }
 
-  </style>
+</style>
 </head>
 <body>
   <header>
@@ -156,22 +214,28 @@
   </header>
 
   <nav>
-    <a href="#our-story">Our Story</a>
-    <a href="#details">Wedding Details</a>
-    <a href="#faq">FAQ</a>
-    <a href="#rsvp">RSVP</a>
-    <a href="#registry">Registry</a>
+    <a id="nav-our-story" href="#our-story">Our Story</a>
+    <a id="nav-details" href="#details">Wedding Details</a>
+    <a id="nav-faq" href="#faq">FAQ</a>
+    <a id="nav-RSVP" href="#rsvp">RSVP</a>
+    <a id="nav-registry" href="#registry">Registry</a>
   </nav>
 
+<div class="language-toggle">
+  <label class="switch">
+    <input type="checkbox" id="languageToggle">
+    <span class="slider round"></span>
+  </label>
+  <span class="label-text">Español</span>
+</div>
+
+</div>
   <section id="our-story">
-    <h2>Our Story</h2>
-    <p>Me and ango.</p>
+    <!-- Updated with Javascript -->
   </section>
 
   <section id="details">
-    <h2>Wedding Details</h2>
-    <p><strong>Date:</strong> November 08, 2025</p>
-    <p><strong>Time:</strong> Ceremony at 4:00 PM, Reception to follow</p>
+    <!-- Updated with Javascript -->
   </section>
 
   <section id="faq">
@@ -233,17 +297,7 @@
   </section>
 
   <section id="rsvp">
-    <h2>RSVP</h2>
-    <p>Let us know if you'll be joining the celebration!</p>
-    <button class="rsvp-button" onclick="showRSVPForm()">RSVP Now</button>
-    <div id="rsvp-form" style="display: none; margin-top: 1rem;">
-      <input type="text" id="name" placeholder="Your Name" style="padding: 0.5rem; width: 100%; margin-bottom: 1rem;">
-      <select id="attendance" style="padding: 0.5rem; width: 100%; margin-bottom: 1rem;">
-        <option value="yes">Yes, I’ll be there</option>
-        <option value="no">Sorry, I can’t make it</option>
-      </select>
-      <button class="rsvp-button" onclick="submitRSVP()">Submit</button>
-    </div>
+    <!-- Updated with Javascript -->
   </section>
 
   <section id="registry">
@@ -256,6 +310,9 @@
   <footer>
     <p>© 2025 Samatha & Ignacio. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script src="wedding.js"></script>
 
   <!-- 1) Firebase App -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
