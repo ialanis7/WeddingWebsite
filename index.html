@@ -54,10 +54,14 @@
     }
     section {
       padding: 3rem 2rem;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
+    button {
+      position: center;
+    }
+
     .rsvp-button {
       background-color: #3c1a4f; /* Dark Purple */
       color: white;
@@ -122,8 +126,8 @@
 
     .language-toggle {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: right;
+      justify-content: right;
       gap: 0.5rem;
       margin-top: 1rem;
       font-weight: bold;
@@ -166,7 +170,7 @@
     }
 
     input:checked + .slider {
-      background-color: #3c1a4f; /* Dark purple when on */
+      background-color: #177b50; /* Dark green when on */
     }
 
     input:checked + .slider::before {
@@ -174,7 +178,7 @@
     }
 
     .label-text {
-      color: #3c1a4f;
+      color: white;
     }
 
     
@@ -189,6 +193,11 @@
 
     .map-button {
       background-color: #3c1a4f; /* Dark Purple */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
       padding: 14px 24px;
       border-radius: 8px;
@@ -208,9 +217,7 @@
 </style>
 </head>
 <body>
-  <header>
-    <h1>Samantha & Ignacio</h1>
-    <p>Join us as we tie the knot</p>
+  <header id="headerText">
   </header>
 
   <nav>
@@ -219,15 +226,14 @@
     <a id="nav-faq" href="#faq">FAQ</a>
     <a id="nav-RSVP" href="#rsvp">RSVP</a>
     <a id="nav-registry" href="#registry">Registry</a>
+    <div class="language-toggle nav">
+      <label class="switch">
+        <input type="checkbox" id="languageToggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="label-text">¿Español?</span>
+    </div>
   </nav>
-
-<div class="language-toggle">
-  <label class="switch">
-    <input type="checkbox" id="languageToggle">
-    <span class="slider round"></span>
-  </label>
-  <span class="label-text">Español</span>
-</div>
 
 </div>
   <section id="our-story">
@@ -296,15 +302,15 @@
     </div>
   </section>
 
-  <section id="rsvp">
+  <section id="rsvp" class="rsvp">
     <!-- Updated with Javascript -->
   </section>
 
   <section id="registry">
-    <h2>Registry</h2>
+    <!-- <h2>Registry</h2>
     <p>Your presence at our wedding is the greatest gift of all.</p>
     <p>If you'd like to contribute to our future together, we've set up a fund for our honeymoon and a few other goals we’re excited about.</p>
-    <p><a class="map-button" href="https://your-cash-registry-link.com" target="_blank" rel="noopener noreferrer">Click here to view our registry</a></p>
+    <p><a class="map-button" href="https://your-cash-registry-link.com" target="_blank" rel="noopener noreferrer">Click here to view our registry</a></p> -->
   </section>
 
   <footer>
