@@ -221,11 +221,11 @@
   </header>
 
   <nav>
-    <a id="nav-our-story" href="#our-story">Our Story</a>
-    <a id="nav-details" href="#details">Wedding Details</a>
-    <a id="nav-faq" href="#faq">FAQ</a>
-    <a id="nav-RSVP" href="#rsvp">RSVP</a>
-    <a id="nav-registry" href="#registry">Registry</a>
+    <a id="nav-our-story" href="#our-story"><!-- Updated with Javascript --></a>
+    <a id="nav-details" href="#details"><!-- Updated with Javascript --></a>
+    <a id="nav-faq" href="#faq"><!-- Updated with Javascript --></a>
+    <a id="nav-RSVP" href="#rsvp"><!-- Updated with Javascript --></a>
+    <a id="nav-registry" href="#registry"><!-- Updated with Javascript --></a>
     <div class="language-toggle nav">
       <label class="switch">
         <input type="checkbox" id="languageToggle">
@@ -245,61 +245,7 @@
   </section>
 
   <section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <h3>What should I wear?</h3>
-        <p>We kindly request that all guests wear formal attire for our wedding.</p>
-        <ul>
-        <li><strong>For women:</strong> Floor-length evening gowns or elegant, dressy cocktail dresses in rich fabrics. Please avoid casual sundresses or anything too casual.</li>
-        <li><strong>For men:</strong> A tuxedo or a dark suit and tie is appropriate. Dress shoes are expected (no sneakers or casual footwear).</li>
-        </ul>
-        <p>Think elegant, timeless, and classy — this will be a special evening, and we’d love for everyone to dress to match the occasion!</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I bring a plus one?</h3>
-        <p>Only if your invitation specifies a guest. We have limited space and want to keep it intimate.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Will there be food and drinks?</h3>
-        <p>Absolutely! We'll have a full dinner and drinks of your choice at the reception.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is parking available?</h3>
-        <p>Yes, there is free parking available at the venue. Parking for all event guests is in the public parking lot next to the Museum. Valet-Parking is allowed.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I bring a purse?</h3>
-        <p>No bags over the size of 7” x 5” x 2” are allowed inside the museum. If for some reason an oversize bag is 
-          needed, all bags must be checked in at the front desk.</p>
-      </div>
-      <div class="faq-item">
-        <h3>May I bring my firearm?</h3>
-        <p>Firearms are not permitted on Museum premises. This policy applies to everyone, including individuals 
-          licensed by the State of Texas to carry a concealed handgun.</p>
-      </div>
-      <div class="faq-item">
-        <h3>A Note on Our Younger Guests</h3>
-        <p>
-          To ensure the safety and enjoyment of everyone, especially our littlest
-          guests, we kindly request that <b>all children attending the wedding remain
-          supervised by an adult at all times.</b>
-        </p>
-        <br>
-        <p>
-          Our venue, the Museum, has specific safety guidelines. Should any child be
-          left unattended, a member of the Museum staff will issue a polite reminder.
-          If a child is found unattended a second time, the child and their family
-          will, regrettably, be asked to leave the premises for the safety and
-          security of all our guests and the Museum's collections.
-        </p>
-        <br>
-        <p>
-          We appreciate your understanding and cooperation in making our wedding a safe
-          and joyful occasion for everyone!
-        </p>
-      </div>
-    </div>
+    <!-- Updated with Javascript -->
   </section>
 
   <section id="rsvp" class="rsvp">
@@ -307,81 +253,15 @@
   </section>
 
   <section id="registry">
-    <!-- <h2>Registry</h2>
-    <p>Your presence at our wedding is the greatest gift of all.</p>
-    <p>If you'd like to contribute to our future together, we've set up a fund for our honeymoon and a few other goals we’re excited about.</p>
-    <p><a class="map-button" href="https://your-cash-registry-link.com" target="_blank" rel="noopener noreferrer">Click here to view our registry</a></p> -->
+    <!-- Updated with Javascript -->
   </section>
 
   <footer>
     <p>© 2025 Samatha & Ignacio. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript File-->
   <script src="wedding.js"></script>
-
-  <!-- 1) Firebase App -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<!-- 2) Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
-
-<script>
-  // 3) Your config must include databaseURL
-  const firebaseConfig = {
-    apiKey: "AIzaSyCj0vxSNwMslr_EcA9OjPxZO-a4tIi1hgg",
-    authDomain: "wedding-rsvp-15ba9.firebaseapp.com",
-    databaseURL: "https://wedding-rsvp-15ba9-default-rtdb.firebaseio.com",
-    projectId: "wedding-rsvp-15ba9",
-    storageBucket: "wedding-rsvp-15ba9.firebasestorage.app",
-    messagingSenderId: "725171700937",
-    appId: "1:725171700937:web:5d3c271c6e7dede5bcf918",
-    measurementId: "G-LDHSPLHVRK"
-  };
-
-  // 4) Initialize
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  function showRSVPForm() {
-    document.getElementById('rsvp-form').style.display = 'block';
-  }
-
-  function submitRSVP() {
-    const name = document.getElementById('name').value.trim();
-    const attendance = document.getElementById('attendance').value;
-
-    if (!name) {
-      alert('Please enter your name.');
-      return;
-    }
-
-    // 5) Push a new RSVP under /rsvps
-    const newRef = database.ref('rsvps').push();
-    newRef.set({
-      name: name,
-      attendance: attendance,
-      timestamp: firebase.database.ServerValue.TIMESTAMP
-    })
-    .then(() => {
-      alert(`Thank you, ${name}. Your RSVP has been received.`);
-      document.getElementById('rsvp-form').style.display = 'none';
-      document.getElementById('name').value = '';
-      document.getElementById('attendance').value = 'yes';
-    })
-    .catch((error) => {
-      alert("Error submitting RSVP: " + error.message);
-    });
-  }
-
-  function initMap() {
-    const venueLocation = { lat: 26.1962357, lng: -98.1534982 };
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 14,
-      center: venueLocation,
-    });
-    new google.maps.Marker({ position: venueLocation, map: map });
-  }
-</script>
 
 </body>
 </html>
