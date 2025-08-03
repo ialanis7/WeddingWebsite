@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samantha & Ignacio's Wedding</title>
   <style>
     body {
@@ -10,6 +10,7 @@
       font-family: 'Open Sans', sans-serif;
       background-color: #fdfcfb;
       color: #333;
+      max-width: 100%;
     }
     header {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/Gelman_Background_Header.jpg') no-repeat center center/cover;
@@ -20,6 +21,7 @@
       align-items: center;
       text-align: center;
       color: white;
+      max-width: 100%;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
@@ -27,8 +29,14 @@
       margin: 0;
     }
     header p {
-      font-size: 1.5rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      max-width: 100%;
+    }
+    img {
+      display: flex;
+      max-width: 100%; /* Limits the image's width to its container's width, preventing horizontal overflow */
+      height: auto;    /* Automatically adjusts the height to maintain the image's aspect ratio */
     }
     nav {
       background-color: #3c1a4f;
@@ -54,7 +62,8 @@
     }
     section {
       padding: 3rem 2rem;
-      max-width: 1200px;
+      width: 1100px;
+      max-width: 100%;
       margin: 0 auto;
     }
     
@@ -102,6 +111,7 @@
     }
     .faq-item p {
       margin: 0;
+      max-width: 100%;
     }
     .venue-section {
       text-align: center;

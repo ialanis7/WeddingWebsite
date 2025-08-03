@@ -96,15 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Our Story
     document.getElementById("our-story").innerHTML = `
-      <img src="Images/SammyNachoLookAtWater.jpg" style="float:right;width:500px;height:325px;padding: 3rem 2rem;"></img>
+      <img src="Images/SammyNachoLookAtWater.jpg" style="float:right;width:auto;max-width: 100%;height:325px;padding: 3rem 2rem;"></img>
       <h2>${lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</h2>
       <p>${translations[lang].ourStory}</p>
     `;
 
     // Wedding Details
     document.getElementById("details").innerHTML = `
-    
-      <img src="Images/SammyNachoHands.jpg" style="float:left;width:500px;height:300px;padding: 3rem 2rem;"></img>
+      <img src="Images/SammyNachoHands.jpg" style="float:left;width:auto;max-width: 100%;height:300px;padding: 3rem 2rem;"></img>
       <h2>${translations[lang].weddingDetails.title}</h2>
       <p><strong>${translations[lang].weddingDetails.date}</strong></p>
       <p><strong>${translations[lang].weddingDetails.time}</strong></p>
@@ -112,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Frequently Asked Questions
     document.getElementById("faq").innerHTML = `
-      <img src="Images/SammyNachoHands.jpg" style="float:right;width:500px;height:1100px;padding: 3rem 2rem;"></img>
       <h2>${translations[lang].faq.title}</h2>
       <div class="faq-item">
         <h3>${translations[lang].faq.attireQuestion}</h3>
