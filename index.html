@@ -39,31 +39,104 @@
       height: auto;    /* Automatically adjusts the height to maintain the image's aspect ratio */
     }
     nav {
-      background-color: #3c1a4f;
-      padding: 1rem;
-      text-align: center;
       position: sticky;
       top: 0;
+      background-color: #3c1a4f;
+      padding: 0.75rem 1.5rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       z-index: 1000;
     }
 
-    nav a {
-      margin: 0 1rem;
+    .nav-container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      background-color: #3c1a4f;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Nav Links (default desktop view) */
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .nav-links a {
       text-decoration: none;
       color: white;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a:focus {
+    .nav-links a:hover {
       color: #177b50;
     }
+
+    .language-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .language-toggle {
+        margin-top: 1rem;
+      }
+    }
+
+
     section {
       padding: 3rem 2rem;
-      width: 1100px;
-      max-width: 100%;
+      max-width: 75%;
       margin: 0 auto;
     }
     
@@ -132,17 +205,6 @@
       font-size: 1.1rem;
       color: #2e2e2e;
       margin-bottom: 30px;
-    }
-
-    .language-toggle {
-      display: flex;
-      align-items: right;
-      justify-content: right;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      font-weight: bold;
-      font-size: 1rem;
-      color: #3c1a4f;
     }
 
     .switch {
@@ -231,21 +293,31 @@
   </header>
 
   <nav>
-    <a id="nav-our-story" href="#our-story"><!-- Updated with Javascript --></a>
-    <a id="nav-details" href="#details"><!-- Updated with Javascript --></a>
-    <a id="nav-faq" href="#faq"><!-- Updated with Javascript --></a>
-    <a id="nav-RSVP" href="#rsvp"><!-- Updated with Javascript --></a>
-    <a id="nav-registry" href="#registry"><!-- Updated with Javascript --></a>
-    <div class="language-toggle nav">
-      <label class="switch">
-        <input type="checkbox" id="languageToggle">
-        <span class="slider round"></span>
-      </label>
-      <span class="label-text">¿Español?</span>
+    <div class="nav-container">
+      <div class="nav-header">
+        <div class="nav-logo">S&I</div> <!-- Optional short logo/initials -->
+        <button class="nav-toggle" aria-label="Toggle Menu">
+          ☰
+        </button>
+      </div>
+      
+      <div class="nav-links" id="navLinks">
+        <a id="nav-our-story" href="#our-story"></a>
+        <a id="nav-details" href="#details"></a>
+        <a id="nav-faq" href="#faq"></a>
+        <a id="nav-RSVP" href="#rsvp"></a>
+        <a id="nav-registry" href="#registry"></a>
+        <div class="language-toggle">
+          <label class="switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="slider round"></span>
+          </label>
+          <span class="label-text">¿Español?</span>
+        </div>
+      </div>
     </div>
   </nav>
 
-</div>
   <section id="our-story">
     <!-- Updated with Javascript -->
   </section>
