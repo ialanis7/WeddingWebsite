@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samantha & Ignacio's Wedding</title>
   <style>
+    html {
+      scroll-padding-top: var(--navbar-height, 70px);
+    }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -35,8 +38,8 @@
     }
     img {
       display: flex;
-      max-width: 100%; /* Limits the image's width to its container's width, preventing horizontal overflow */
-      height: auto;    /* Automatically adjusts the height to maintain the image's aspect ratio */
+      max-width: 100%;
+      height: auto;
     }
     nav {
       position: sticky;
@@ -133,6 +136,7 @@
       }
     }
 
+    
 
     section {
       padding: 3rem 2rem;
@@ -144,22 +148,6 @@
       position: center;
     }
 
-    .rsvp-button {
-      background-color: #4B1E3D; /* Dark Purple */
-      color: #FFFFF0;
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(60, 26, 79, 0.3);
-    }
-    .rsvp-button:hover {
-      background-color: #af810d; /* Dark Green */
-      color: #FFFFF0;
-    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -242,7 +230,7 @@
     }
 
     input:checked + .slider {
-      background-color: #af810d; /* Dark green when on */
+      background-color: #af810d; /* Gold when on */
     }
 
     input:checked + .slider::before {
@@ -252,13 +240,11 @@
     .label-text {
       color: #FFFFF0;
     }
-
-    
     .map-container {
       max-width: 900px;
       margin: 0 auto 30px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-      border: 4px solid #af810d; /* Dark Green border */
+      border: 4px solid #af810d; /* Gold border */
       border-radius: 12px;
       overflow: hidden;
     }
@@ -282,7 +268,7 @@
     }
 
     .map-button:hover {
-      background-color: #FFFFF0; /* Dark Green */
+      background-color: #FFFFF0; /* Ivory */
       color: #4B1E3D;
     }
 
@@ -302,7 +288,7 @@
       </div>
       
       <div class="nav-links" id="navLinks">
-        <a id="nav-our-story" href="#our-story"></a>
+        <a id="nav-our-story" style="scroll-margin-top: 800px;" href="#our-story"></a>
         <a id="nav-details" href="#details"></a>
         <a id="nav-faq" href="#faq"></a>
         <a id="nav-RSVP" href="#rsvp"></a>

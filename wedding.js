@@ -104,14 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Our Story
     document.getElementById("our-story").innerHTML = `
-      <img src="Images/SammyNachoLookAtWater.jpg" style="float:right;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
-      <h2>${lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</h2>
+      <img src="Images/Our Story.jpg" style="float:right;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
+      <h2>${lang === 'es' ? 'De la Primera Cita al Para Siempre' : 'From First Date to Forever'}</h2>
       <p>${translations[lang].ourStory}</p>
+      <img src="Images/SammyNachoHands.jpg" style="float:left;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
     `;
 
     // Wedding Details
     document.getElementById("details").innerHTML = `
-      <img src="Images/SammyNachoHands.jpg" style="float:left;width:auto;max-width: 100%;height:20vh;padding: 3rem 2rem;"></img>
       <h2>${translations[lang].weddingDetails.title}</h2>
       <p>${translations[lang].weddingDetails.date}</p>
       <p>${translations[lang].weddingDetails.time}</p>
@@ -152,9 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // RSVP
     document.getElementById("rsvp").innerHTML = `
+      <img src="Images/tailgate.jpg" style="float:left;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
       <h2>${translations[lang].rsvpTitle}</h2>
       <p style="justify-content: center;align-items: center;text-align: center;">${translations[lang].rsvpPrompt}</p>
       <h2><button class="map-button" onclick="window.open('https://bodaalanis2025.rsvpify.com','_blank')" target="_blank">${translations[lang].rsvpButton}</button></h2>
+      <img src="Images/Pose.jpg" style="float:right;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
     `;
 
      // Registry
@@ -162,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <h2>${lang === 'es' ? 'Registro' : 'Registry'}</h2>
       <p>${translations[lang].registryPrompt}</p>
       <h2><button class="map-button" onclick="window.open('https://cash.app/$samantherss','_blank')" rel="noopener noreferrer">${translations[lang].registryButtonText}</button></h2>
-    `;
+      `;
 
   }
 
