@@ -1,11 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.querySelector(".nav-toggle");
-      const navLinks = document.getElementById("navLinks");
+  const toggleBtn = document.querySelector(".nav-toggle");
+  const navLinks = document.getElementById("navLinks");
 
-      toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+  // Close menu when clicking on any nav link
+  navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+      navLinks.classList.remove("show");
     });
+  });
+
+  // Close menu when clicking outside of it
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = navLinks.contains(event.target);
+    const isClickOnToggle = toggleBtn.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      navLinks.classList.remove("show");
+    }
+  });
+
+  });
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('languageToggle');
 
@@ -17,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       weddingDetails: {
         title: "Wedding Details",
         date: "<strong>Date: </strong>November 08, 2025",
-        time: "<strong>Time: </strong>Ceremony at 4:00 PM, Reception to follow"
+        time: "<strong>Time: </strong>Ceremony at 4:00 PM, Reception to follow. <br> Please arrive in a timley manner."
       },
       rsvpTitle: "RSVP",
       rsvpPrompt: "Let us know if you'll be joining the celebration!",
@@ -44,19 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     // SPANISH TRANSLATIONS
     es: {
-      headerText: "Únase a nosotros para casarnos",
+      headerText: "Acompáñanos a unir nuestras vidas",
       ourStory: "<p>Nacho y Sammy comparten una historia de amor moderna, que comenzó durante la era del COVID—con un follow en Instagram, un mensajito, y una primera cita muy aventurera: un paseo en bici al aire libre.<br><br>Nacho ya le sabía a eso de andar en bicicleta, mientras que Sammy… no tanto. Pero no tenía de qué preocuparse—Nacho llegó con todo lo que ella iba a necesitar: una bici extra, equipo de seguridad, y sobre todo, mucha paciencia. Aunque Sammy se tambaleaba, batallaba para seguirle el paso, y ni siquiera alcanzaba bien los pedales, Nacho nunca la dejó atrás. Le ofreció su casco como banquito, la animó, y le echó porras todo el camino. Desde ese primer paseo, Sammy supo que había encontrado a alguien muy especial.<br><br>Su amor creció a través de aventuras compartidas—caminatas por Colorado, campamentos en Big Bend y South Padre, y bailes en conciertos de Rex Orange County, Foster the People y Taylor Swift. Se conectaron por su sentido del humor, sus comediantes favoritos como Tony Hinchcliffe, y noches acurrucados viendo Breaking Bad y The Sopranos. Pero más allá de sus gustos, lo que realmente los unió fueron sus valores compartidos, su fe, y esa forma profunda de entenderse sin decir mucho.<br><br>En una noche mágica de diciembre del 2022, Sammy pensaba que simplemente iban a cenar con sus papás en Bodega. Pero al salir rumbo al carro, Nacho la llevó al patio trasero—lleno de luces, pétalos de rosa, y una sorpresa. Ahí, Nacho se arrodilló y le pidió que se casara con él. Con lágrimas en los ojos, Sammy le dijo que sí.<br><br>Después de varios años de amor y carcajadas, Nacho y Sammy ahora viven juntos con sus dos gatitos consentidos, Cleo y Claus. Ya desde hace tiempo se sienten como una familia, pero ahora están listos para hacerlo oficial. Eligieron una celebración íntima, rodeados de las personas que más quieren, para marcar el inicio de este nuevo capítulo.<br><br>Gracias por ser parte de este momento tan especial. Nacho y Sammy están llenos de gratitud y felicidad al comenzar su “para siempre”—arraigado en el amor, guiado por la fe, y soñando con su hogar, un tercer gato, y una vida llena de familia.</p>",
       weddingDetails: {
         title: "Detalles de la Boda",
         date: "<strong>Fecha: </strong>08 de noviembre de 2025",
-        time: "<strong>Hora: </strong>Ceremonia a las 4:00 PM, recepción después"
+        time: "<strong>Hora: </strong>Ceremonia a las 4:00 PM, recepción después. <br>Por favor llegue puntualmente."
       },
       rsvpTitle: "Confirmar Asistencia",
       rsvpPrompt: "¡Haznos saber si vendrás a la celebración!",
       rsvpButton: "Confirmar ahora",
       faq: {
         title: "Preguntas Frecuentes",
-        attireQuestion: "¿Qué debo usar?",
+        attireQuestion: "¿Qué debo ponerme?",
         attireAnswer: "<ul><li><strong>Para mujeres:</strong> Vestidos de noche largos o vestidos elegantes de cóctel en telas sofisticadas. Por favor, evite vestidos informales o ropa demasiado casual.</li><li><strong>Para hombres:</strong> Es apropiado un esmoquin o un traje oscuro con corbata. Se espera calzado formal (sin tenis ni calzado informal).</li></ul><p>Piense en algo elegante, atemporal y con clase — será una noche especial, y nos encantaría que todos se vistan acorde a la ocasión.</p>",
         plusoneQuestion: "¿Puedo llevar un acompañante?",
         plusoneAnswer: "Solo si tu invitación especifica que puedes traer un invitado. Tenemos espacio limitado y queremos mantenerlo íntimo.",
@@ -93,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <a>${lang === 'es' ? 'Detalles de la Boda' : 'Wedding Details'}</a>
     `;
     document.getElementById("nav-faq").innerHTML = `
-      <a>${lang === 'es' ? 'FAQ' : 'FAQ'}</a>
+      <a>${lang === 'es' ? 'Preguntas Frecuentes' : 'FAQ'}</a>
     `;
     document.getElementById("nav-RSVP").innerHTML = `
       <a>${lang === 'es' ? 'RSVP' : 'RSVP'}</a>
@@ -152,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // RSVP
     document.getElementById("rsvp").innerHTML = `
-      <img src="Images/tailgate.jpg" style="float:left;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
       <h2>${translations[lang].rsvpTitle}</h2>
       <p style="justify-content: center;align-items: center;text-align: center;">${translations[lang].rsvpPrompt}</p>
       <h2><button class="map-button" onclick="window.open('https://bodaalanis2025.rsvpify.com','_blank')" target="_blank">${translations[lang].rsvpButton}</button></h2>
