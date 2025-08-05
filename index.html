@@ -112,6 +112,13 @@
       gap: 0.5rem;
       color: #FFFFF0;
     }
+    .language-toggle.mobile-toggle {
+      display: none;
+    }
+
+    .language-toggle.desktop-toggle {
+      display: flex;
+    }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
@@ -145,8 +152,14 @@
       .nav-links.show {
         display: flex;
       }
+      .language-toggle.desktop-toggle {
+        margin-top: 1rem;
+        display: none;
+      }
 
-      .language-toggle {
+      .language-toggle.mobile-toggle {
+        display: flex;
+        justify-content: center;
         margin-top: 1rem;
       }
     }
@@ -292,30 +305,41 @@
   </header>
 
   <nav>
-    <div class="nav-container">
-      <div class="nav-header">
-        <div class="nav-logo">S&I</div> <!-- Optional short logo/initials -->
-        <button class="nav-toggle" aria-label="Toggle Menu">
-          ☰
-        </button>
-      </div>
-      
-      <div class="nav-links" id="navLinks">
-        <a id="nav-our-story" style="scroll-margin-top: 800px;" href="#our-story"></a>
-        <a id="nav-details" href="#details"></a>
-        <a id="nav-faq" href="#faq"></a>
-        <a id="nav-RSVP" href="#rsvp"></a>
-        <a id="nav-registry" href="#registry"></a>
-        <div class="language-toggle">
-          <label class="switch">
-            <input type="checkbox" id="languageToggle">
-            <span class="slider round"></span>
-          </label>
-          <span class="label-text">¿Español?</span>
-        </div>
+  <div class="nav-container">
+    <div class="nav-header">
+      <div class="nav-logo">S&I</div>
+      <button class="nav-toggle" aria-label="Toggle Menu">☰</button>
+    </div>
+
+    <!-- Mobile-only toggle button centered -->
+    <div class="language-toggle mobile-toggle">
+      <label class="switch">
+        <input type="checkbox" id="languageToggleMobile">
+        <span class="slider round"></span>
+      </label>
+      <span class="label-text">¿Español?</span>
+    </div>
+
+    <!-- Navigation links (Desktop + Hamburger) -->
+    <div class="nav-links" id="navLinks">
+      <a id="nav-our-story" href="#our-story"></a>
+      <a id="nav-details" href="#details"></a>
+      <a id="nav-faq" href="#faq"></a>
+      <a id="nav-RSVP" href="#rsvp"></a>
+      <a id="nav-registry" href="#registry"></a>
+
+      <!-- Desktop-only language toggle (hidden on mobile) -->
+      <div class="language-toggle desktop-toggle">
+        <label class="switch">
+          <input type="checkbox" id="languageToggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="label-text">¿Español?</span>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <section id="our-story">
     <!-- Updated with Javascript -->

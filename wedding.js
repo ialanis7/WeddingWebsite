@@ -22,7 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  });
+});
+// Close menu on scroll (mobile only)
+window.addEventListener('scroll', () => {
+  const isMobile = window.innerWidth <= 768;
+  const navMenuIsOpen = navLinks.classList.contains('show');
+
+  if (isMobile && navMenuIsOpen) {
+    navLinks.classList.remove('show');
+  }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('languageToggle');
 
