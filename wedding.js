@@ -1,43 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.querySelector(".nav-toggle");
-  const navLinks = document.getElementById("navLinks");
-
-  toggleBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
-  // Close menu when clicking on any nav link
-  navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-      navLinks.classList.remove("show");
-    });
-  });
-
-  // Close menu when clicking outside of it
-  document.addEventListener("click", (event) => {
-    const isClickInsideMenu = navLinks.contains(event.target);
-    const isClickOnToggle = toggleBtn.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnToggle) {
-      navLinks.classList.remove("show");
-    }
-  });
-
-});
-// Close menu on scroll (mobile only)
-window.addEventListener('scroll', () => {
-  const isMobile = window.innerWidth <= 768;
-  const navMenuIsOpen = navLinks.classList.contains('show');
-
-  if (isMobile && navMenuIsOpen) {
-    navLinks.classList.remove('show');
-  }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('languageToggle');
-
-  const translations = {
+const translations = {
     // ENGLISH TRANSLATIONS
     en: {
       headerText: "Join us as we tie the knot",
@@ -105,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add more translations here...
     }
   };
-
   function updateLanguage(lang) {
     // Header
     document.getElementById("headerText").innerHTML = `
@@ -195,13 +155,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".nav-toggle");
+  const navLinks = document.getElementById("navLinks");
 
-  // Toggle switch listener
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  // Close menu on scroll (mobile only)
+  window.addEventListener('scroll', () => {
+    const isMobile = window.innerWidth <= 768;
+    const navMenuIsOpen = navLinks.classList.contains('show');
+
+    if (isMobile && navMenuIsOpen) {
+      navLinks.classList.remove('show');
+    }
+  });
+
+  // Close menu when clicking on any nav link
+  navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+    });
+  });
+
+  // Close menu when clicking outside of it
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = navLinks.contains(event.target);
+    const isClickOnToggle = toggleBtn.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      navLinks.classList.remove("show");
+    }
+  });
+  // Language toggles (desktop + mobile)
+const toggleDesktop = document.getElementById('languageToggle');
+const toggleMobile = document.getElementById('languageToggleMobile');
+
+// Sync both toggles
+function syncLanguageToggles(lang) {
+  if (toggleDesktop) toggleDesktop.checked = (lang === 'es');
+  if (toggleMobile) toggleMobile.checked = (lang === 'es');
+}
+
+// Set initial language
+let currentLanguage = 'en';
+updateLanguage(currentLanguage);
+syncLanguageToggles(currentLanguage);
+
+// Listen for desktop toggle
+if (toggleDesktop) {
+  toggleDesktop.addEventListener('change', function () {
+    currentLanguage = this.checked ? 'es' : 'en';
+    updateLanguage(currentLanguage);
+    syncLanguageToggles(currentLanguage);
+  });
+}
+
+// Listen for mobile toggle
+if (toggleMobile) {
+  toggleMobile.addEventListener('change', function () {
+    currentLanguage = this.checked ? 'es' : 'en';
+    updateLanguage(currentLanguage);
+    syncLanguageToggles(currentLanguage);
+  });
+}
+
+
+});
   toggle.addEventListener('change', function () {
     updateLanguage(this.checked ? 'es' : 'en');
   });
 
   // Set default language
   updateLanguage('en');
-});
