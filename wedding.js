@@ -14,7 +14,7 @@ const translations = {
       faq: {
         title: "Frequently Asked Questions",
         attireQuestion: "What should I wear?",
-        attireAnswer: "<p>We kindly request that all guests wear formal attire for our wedding.</p><ul><li><strong>For women:</strong> Floor-length evening gowns or elegant, dressy cocktail dresses in rich fabrics. Please avoid casual sundresses or anything too casual.</li><li><strong>For men:</strong> A tuxedo or a dark suit and tie is appropriate. Dress shoes are expected (no sneakers or casual footwear).</li></ul><p>Think elegant, timeless, and classy — this will be a special evening, and we’d love for everyone to dress to match the occasion!</p>",
+        attireAnswer: "<p>We kindly request that all guests wear formal attire for our wedding.</p><ul><li><strong>For women:</strong> Floor-length evening gowns or elegant, dressy cocktail dresses in rich fabrics. Please avoid casual sundresses or anything too casual.</li><li><strong>For men:</strong> A dark suit and tie is appropriate. Dress shoes are expected (no sneakers or casual footwear).</li></ul><p>Think elegant, timeless, and classy — this will be a special evening, and we’d love for everyone to dress to match the occasion!</p>",
         plusoneQuestion: "Can I bring a plus one?",
         plusoneAnswer: "Only if your invitation specifies a guest. We have limited space and want to keep it intimate.",
         foodanddrinksQuestion: "Will there be food and drinks?",
@@ -46,7 +46,7 @@ const translations = {
       faq: {
         title: "Preguntas Frecuentes",
         attireQuestion: "¿Qué debo ponerme?",
-        attireAnswer: "<ul><li><strong>Para mujeres:</strong> Vestidos de noche largos o vestidos elegantes de cóctel en telas sofisticadas. Por favor, evite vestidos informales o ropa demasiado casual.</li><li><strong>Para hombres:</strong> Es apropiado un esmoquin o un traje oscuro con corbata. Se espera calzado formal (sin tenis ni calzado informal).</li></ul><p>Piense en algo elegante, atemporal y con clase — será una noche especial, y nos encantaría que todos se vistan acorde a la ocasión.</p>",
+        attireAnswer: "<ul><li><strong>Para mujeres:</strong> Vestidos de noche largos o vestidos elegantes de cóctel en telas sofisticadas. Por favor, evite vestidos informales o ropa demasiado casual.</li><li><strong>Para hombres:</strong> Un traje oscuro con corbata es apropiado. Se espera calzado formal (sin tenis ni calzado informal).</li></ul><p>Piense en algo elegante, atemporal y con clase — será una noche especial, y nos encantaría que todos se vistan acorde a la ocasión.</p>",
         plusoneQuestion: "¿Puedo llevar un acompañante?",
         plusoneAnswer: "Solo si tu invitación especifica que puedes traer un invitado. Tenemos espacio limitado y queremos mantenerlo íntimo.",
         foodanddrinksQuestion: "¿Habrá comida y bebida?",
@@ -54,7 +54,7 @@ const translations = {
         parkingQuestion: "¿Habrá estacionamiento disponible?",
         parkingAnswer: "Sí, hay estacionamiento gratuito disponible en el lugar. El estacionamiento para todos los invitados del evento está en el lote público al lado del museo. Se permite servicio de valet.",
         purseQuestion: "¿Puedo llevar una bolsa o cartera?",
-        purseAnswer: "No se permiten bolsos de más de 7” x 5” x 2” dentro del museo. Si por alguna razón necesitas una bolsa más grande, deberá dejarse en el mostrador de entrada.",
+        purseAnswer: "No se permiten bolsas de más de 7” x 5” x 2” dentro del museo. Si por alguna razón necesitas una bolsa más grande, deberá dejarse en el mostrador de entrada.",
         firearmQuestion: "¿Puedo llevar mi arma de fuego?",
         firearmAnswer: "No se permiten armas de fuego en las instalaciones del museo. Esta política aplica a todos, incluyendo a personas con licencia del Estado de Texas para portar armas ocultas.",
         kidsQuestion: "Una Nota sobre Nuestros Invitados Más Pequeños",
@@ -92,11 +92,12 @@ const translations = {
 
     // Our Story
     document.getElementById("our-story").innerHTML = `
-      <img src="Images/Our Story.jpg" style="float:right;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
+      <img src="Images/Our Story.jpg" class="story-img right" />
       <h2>${lang === 'es' ? 'De la Primera Cita al Para Siempre' : 'From First Date to Forever'}</h2>
       <p>${translations[lang].ourStory}</p>
-      <img src="Images/SammyNachoHands.jpg" style="float:left;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
+      <img src="Images/SammyNachoHands.jpg" class="story-img left" />
     `;
+
 
     // Wedding Details
     document.getElementById("details").innerHTML = `
@@ -143,7 +144,7 @@ const translations = {
       <h2>${translations[lang].rsvpTitle}</h2>
       <p style="justify-content: center;align-items: center;text-align: center;">${translations[lang].rsvpPrompt}</p>
       <h2><button class="map-button" onclick="window.open('https://bodaalanis2025.rsvpify.com','_blank')" target="_blank">${translations[lang].rsvpButton}</button></h2>
-      <img src="Images/Pose.jpg" style="float:right;width:auto;max-width: 100%;height:40vh;padding: 3rem 2rem;"></img>
+      <img src="Images/Pose.jpg" class="story-img right" />
     `;
 
      // Registry
